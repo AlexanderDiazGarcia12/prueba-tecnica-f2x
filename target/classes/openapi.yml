@@ -1,0 +1,390 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:8080/entidad-financiera/v1
+info:
+  version: "1.0.0"
+  title: Entidad financiera
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  description: |-
+    Prueba técnica para F2X.
+    Aplicación para una entidad financiera donde se gestionan los clientes, productos y las transacciones.
+  contact:
+    email: alexdg12@gmail.com
+    name: Alexander Diaz Garcia
+tags:
+  - name: clientes
+    description: Servicios para gestionar clientes
+  - name: produtos
+    description: Módulo para gestionar los productos asociados a un cliente
+  - name: transacciones
+    description: Módulo para gestionar las transacciones entre productos
+paths:
+  /clientes:
+    get:
+      tags:
+        - clientes
+      summary: Obtener todos los clientes
+      responses:
+        '200':
+          description: Lista de clientes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cliente'
+    post:
+      tags:
+        - clientes
+      summary: Crear un nuevo cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+      responses:
+        '201':
+          description: Cliente creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+
+  /clientes/{id}:
+    get:
+      tags:
+        - clientes
+      summary: Obtener un cliente por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cliente encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '404':
+          description: Cliente no encontrado
+    put:
+      tags:
+        - clientes
+      summary: Actualizar un cliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+      responses:
+        '200':
+          description: Cliente actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '404':
+          description: Cliente no encontrado
+    delete:
+      tags:
+        - clientes
+      summary: Eliminar un cliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Cliente eliminado
+        '404':
+          description: Cliente no encontrado
+
+  /productos:
+    get:
+      tags:
+        - produtos
+      summary: Obtener todos los productos
+      responses:
+        '200':
+          description: Lista de productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Producto'
+    post:
+      tags:
+        - produtos
+      summary: Crear un nuevo producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+      responses:
+        '201':
+          description: Producto creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+
+  /productos/{id}:
+    get:
+      tags:
+        - produtos
+      summary: Obtener un producto por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+        '404':
+          description: Producto no encontrado
+    put:
+      tags:
+        - produtos
+      summary: Actualizar un producto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Producto'
+      responses:
+        '200':
+          description: Producto actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Producto'
+        '404':
+          description: Producto no encontrado
+    delete:
+      tags:
+        - produtos
+      summary: Eliminar un producto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Producto eliminado
+        '404':
+          description: Producto no encontrado
+
+  /transacciones:
+    get:
+      tags:
+        - transacciones
+      summary: Obtener todas las transacciones
+      responses:
+        '200':
+          description: Lista de transacciones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaccion'
+    post:
+      tags:
+        - transacciones
+      summary: Crear una nueva transacción
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaccion'
+      responses:
+        '201':
+          description: Transacción creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaccion'
+
+  /transacciones/{id}:
+    get:
+      tags:
+        - transacciones
+      summary: Obtener una transacción por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Transacción encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaccion'
+        '404':
+          description: Transacción no encontrada
+    put:
+      tags:
+        - transacciones
+      summary: Actualizar una transacción
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaccion'
+      responses:
+        '200':
+          description: Transacción actualizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaccion'
+        '404':
+          description: Transacción no encontrada
+    delete:
+      tags:
+        - transacciones
+      summary: Eliminar una transacción
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Transacción eliminada
+        '404':
+          description: Transacción no encontrada
+
+components:
+  schemas:
+    Cliente:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipo_identificacion_id:
+          type: integer
+        numero_identificacion:
+          type: string
+        nombre:
+          type: string
+          minLength: 2
+        apellidos:
+          type: string
+          minLength: 2
+        correo_electronico:
+          type: string
+          format: email
+        password:
+          type: string
+        fecha_nacimiento:
+          type: string
+          format: date
+        fecha_creacion:
+          type: string
+          format: date-time
+          readOnly: true
+        fecha_modificacion:
+          type: string
+          format: date-time
+          readOnly: true
+
+    Producto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipo_cuenta:
+          type: string
+          enum: [Ahorros, Corriente]
+        numero_cuenta:
+          type: string
+          readOnly: true
+        estado:
+          type: string
+          enum: [Activa, Inactiva, Cancelada]
+        saldo:
+          type: number
+          format: double
+        exenta_gmf:
+          type: boolean
+        fecha_creacion:
+          type: string
+          format: date-time
+          readOnly: true
+        fecha_modificacion:
+          type: string
+          format: date-time
+          readOnly: true
+        cliente_id:
+          type: integer
+
+    Transaccion:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipo_transaccion:
+          type: string
+          enum: [Consignacion, Retiro, Transferencia]
+        monto:
+          type: number
+          format: double
+        fecha_transaccion:
+          type: string
+          format: date-time
+          readOnly: true
+        descripcion:
+          type: string
+        producto_origen_id:
+          type: integer
+        producto_destino_id:
+          type: integer
