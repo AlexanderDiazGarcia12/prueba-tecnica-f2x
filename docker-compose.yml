@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres-f2x-db:
+    image: postgres:latest
+    container_name: postgres-f2x-db
+    environment:
+      POSTGRES_USER: f2x-db-user
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: f2x-prueba-tec-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-f2x-data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-boot-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-f2x-db:5432/f2x-prueba-tec-db
+      SPRING_DATASOURCE_USERNAME: f2x-db-user
+      SPRING_DATASOURCE_PASSWORD: 12345
+    depends_on:
+      - postgres-f2x-db
+
+volumes:
+  pg-f2x-data:
