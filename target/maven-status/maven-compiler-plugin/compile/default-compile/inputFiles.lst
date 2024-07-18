@@ -1,4 +1,5 @@
 /Users/alexanderdiaz/Documents/MyProjects/prueba-tecnica-f2x/src/main/java/com/f2x/pruebatecnica/entidad_financiera/EntidadFinancieraApplication.java
+/Users/alexanderdiaz/Documents/MyProjects/prueba-tecnica-f2x/src/main/java/com/f2x/pruebatecnica/entidad_financiera/configuration/SwaggerConfig.java
 /Users/alexanderdiaz/Documents/MyProjects/prueba-tecnica-f2x/src/main/java/com/f2x/pruebatecnica/entidad_financiera/controller/ClienteApi.java
 /Users/alexanderdiaz/Documents/MyProjects/prueba-tecnica-f2x/src/main/java/com/f2x/pruebatecnica/entidad_financiera/controller/ClienteController.java
 /Users/alexanderdiaz/Documents/MyProjects/prueba-tecnica-f2x/src/main/java/com/f2x/pruebatecnica/entidad_financiera/controller/ProductoApi.java

@@ -36,6 +36,7 @@ com/f2x/pruebatecnica/entidad_financiera/model/dto/ClienteDto$ClienteDtoBuilder.
 com/f2x/pruebatecnica/entidad_financiera/service/ProductoService.class
 com/f2x/pruebatecnica/entidad_financiera/model/dto/TransaccionDto.class
 com/f2x/pruebatecnica/entidad_financiera/service/TransaccionServiceImpl.class
+com/f2x/pruebatecnica/entidad_financiera/configuration/SwaggerConfig.class
 com/f2x/pruebatecnica/entidad_financiera/util/mapper/ClienteMapper.class
 com/f2x/pruebatecnica/entidad_financiera/service/transaccion/Consignacion.class
 com/f2x/pruebatecnica/entidad_financiera/service/ClienteService.class

@@ -25,4 +25,9 @@ application:
       expiration: 86400000
 
 springdoc:
-  enable-native-support: true
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: alpha
+    tagsSorter: alpha
